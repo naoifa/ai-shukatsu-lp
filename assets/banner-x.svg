@@ -1,0 +1,29 @@
+<svg width="1500" height="500" viewBox="0 0 1500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#1d3357"/>
+    </linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="1500" height="500" fill="url(#bg)"/>
+  <rect width="1500" height="500" fill="url(#grid)"/>
+
+  <!-- 屋根モチーフ(プロフィール画像の被り回避のため中央寄り) -->
+  <polyline points="335,270 455,130 575,270" fill="none" stroke="#22d3ee" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="455" y="390" text-anchor="middle" font-family="Yu Gothic UI, Yu Gothic, Meiryo, sans-serif" font-size="130" font-weight="800" fill="#ffffff">AI</text>
+  <rect x="395" y="412" width="120" height="9" rx="4.5" fill="#f97316"/>
+
+  <!-- 縦の区切り線 -->
+  <line x1="650" y1="120" x2="650" y2="380" stroke="#2a4a72" stroke-width="2"/>
+
+  <!-- メインコピー -->
+  <text x="700" y="225" font-family="Yu Gothic UI, Yu Gothic, Meiryo, sans-serif" font-size="52" font-weight="800" fill="#ffffff">出遅れ28卒の巻き返しノート</text>
+  <text x="700" y="290" font-family="Yu Gothic UI, Yu Gothic, Meiryo, sans-serif" font-size="30" font-weight="600" fill="#22d3ee">建築学生、単位も就活もAIで巻き返し中</text>
+
+  <!-- サブテキスト -->
+  <text x="700" y="345" font-family="Yu Gothic UI, Yu Gothic, Meiryo, sans-serif" font-size="24" font-weight="400" fill="#8fa8c9">課題・バイトで手一杯な人に、届く就活のはじめ方を実況</text>
+</svg>

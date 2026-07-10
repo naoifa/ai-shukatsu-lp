@@ -1,0 +1,367 @@
+---
+import "../styles/global.css";
+import {
+  GA_MEASUREMENT_ID,
+  SITE_URL,
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  SERVICES,
+} from "../config";
+
+const checkItems = [
+  "サマーインターン、気づいたら締切が過ぎていた",
+  "「ガクチカ」と言えるものが思いつかない",
+  "課題とバイトで、就活に使う時間がそもそもない",
+  "周りが動き出していて、正直かなり焦っている",
+];
+
+const steps = [
+  {
+    num: "1",
+    title: "プロフィールを登録する(15分〜)",
+    body: "自己PR・ガクチカ・写真などを一度だけ入力。ここが唯一の頑張りどころ。",
+  },
+  {
+    num: "2",
+    title: "企業があなたを見つける",
+    body: "企業側がプロフィールを検索して、気になった学生にオファーを送る仕組み。",
+  },
+  {
+    num: "3",
+    title: "届いたオファーから選ぶ",
+    body: "興味のある企業だけ返信すればOK。合わないオファーはスルーでいい。",
+  },
+];
+
+const faqs = [
+  {
+    q: "本当に無料ですか?",
+    a: "はい。ここで紹介している3サービスは、学生側は登録も利用もすべて無料です(企業側が費用を負担する仕組みです)。",
+  },
+  {
+    q: "大学名や学部で不利になりませんか?",
+    a: "逆求人サイトは「プロフィールの中身」を見てオファーを送る企業が多く、大学名だけで足切りされる従来型より、経験や人柄で勝負しやすい場です。ただし、オファーの量は書いたプロフィールの充実度にかなり左右されます。",
+  },
+  {
+    q: "3年の夏からで間に合いますか?",
+    a: "「絶対に間に合う」とは言いません。ただ、登録が遅くなるほど企業に見つけてもらえる期間が短くなるのは確実なので、迷っている間に登録だけ済ませておくのが合理的です。",
+  },
+];
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{SITE_TITLE}</title>
+    <meta name="description" content={SITE_DESCRIPTION} />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={SITE_TITLE} />
+    <meta property="og:description" content={SITE_DESCRIPTION} />
+    <meta property="og:url" content={SITE_URL} />
+    <meta property="og:image" content={`${SITE_URL}/og.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {
+      GA_MEASUREMENT_ID && (
+        <script
+          is:inline
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />
+      )
+    }
+    {
+      GA_MEASUREMENT_ID && (
+        <script is:inline define:vars={{ gaId: GA_MEASUREMENT_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", gaId);
+        </script>
+      )
+    }
+  </head>
+
+  <body class="bg-white text-slate-800 antialiased" style="font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;">
+    <!-- ステマ規制対応:PR表記(消さないこと) -->
+    <p class="bg-slate-100 text-slate-500 text-xs text-center py-1.5 px-4">
+      本ページにはプロモーション(広告)が含まれています
+    </p>
+
+    <header class="max-w-3xl mx-auto px-5 pt-5 flex items-center gap-2">
+      <img src="/icon.svg" alt="" width="28" height="28" class="rounded-md" />
+      <span class="text-sm font-bold text-slate-600">出遅れ28卒の巻き返しノート</span>
+    </header>
+
+    <!-- ヒーロー:悩みの言語化 -->
+    <section class="max-w-3xl mx-auto px-5 pt-10 pb-12">
+      <p class="text-cyan-600 font-bold text-sm mb-3">
+        課題・バイト・単位回収で手一杯の28卒へ
+      </p>
+      <h1 class="text-3xl sm:text-4xl font-extrabold leading-snug text-slate-900">
+        就活「まだ何もしてない」から、<br class="hidden sm:block" />
+        今日の15分で<span class="text-indigo-600">"届く就活"</span>に切り替える
+      </h1>
+      <p class="mt-5 text-slate-600 leading-relaxed">
+        プロフィールを一度書けば、あとは企業側からオファーが届く——
+        それが逆求人(スカウト型)サイトです。就活に出遅れた建築学生の筆者が、
+        実際に登録して巻き返しの最初の一歩にした方法を、そのまま置いておきます。
+      </p>
+      <div class="mt-7 flex flex-col sm:flex-row gap-3">
+        <a
+          href={SERVICES.offerbox.href}
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          data-track="offerbox"
+          data-pos="hero"
+          class="inline-block text-center bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl px-8 py-4 shadow-md transition"
+        >
+          無料でOfferBoxをはじめる
+        </a>
+        <a
+          href="#compare"
+          class="inline-block text-center border border-slate-300 text-slate-700 font-bold rounded-xl px-8 py-4 hover:bg-slate-50 transition"
+        >
+          先に3社の比較を見る
+        </a>
+      </div>
+    </section>
+
+    <!-- 共感チェックリスト -->
+    <section class="bg-slate-50 py-12">
+      <div class="max-w-3xl mx-auto px-5">
+        <h2 class="text-2xl font-extrabold text-slate-900">
+          こんな状態じゃないですか
+        </h2>
+        <ul class="mt-6 space-y-3">
+          {
+            checkItems.map((item) => (
+              <li class="flex items-start gap-3 bg-white rounded-xl px-4 py-3.5 shadow-sm">
+                <span class="text-cyan-500 font-bold mt-0.5">✓</span>
+                <span class="font-medium">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-6 text-slate-600 leading-relaxed">
+          全部、少し前の筆者です。放置すると秋以降は課題も選考も同時に重くなるので、
+          <strong class="text-slate-900">「自分から探しに行かなくても、求人側から来る仕組み」を先に作っておく</strong>
+          のが、出遅れ組の現実的な一手です。
+        </p>
+      </div>
+    </section>
+
+    <!-- 解決策:逆求人の仕組み -->
+    <section class="py-12">
+      <div class="max-w-3xl mx-auto px-5">
+        <h2 class="text-2xl font-extrabold text-slate-900">
+          解決策:「探しに行く就活」から「届く就活」へ
+        </h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          逆求人サイト(という名前ですが、要は<strong class="text-slate-900">スカウトを待つ場所</strong>です)は、
+          忙しい学生ほど相性がいい仕組みです。やることは3つだけ。
+        </p>
+        <div class="mt-7 grid gap-4 sm:grid-cols-3">
+          {
+            steps.map((s) => (
+              <div class="rounded-2xl border border-slate-200 p-5">
+                <div class="w-9 h-9 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center">
+                  {s.num}
+                </div>
+                <h3 class="mt-3 font-bold text-slate-900">{s.title}</h3>
+                <p class="mt-2 text-sm text-slate-600 leading-relaxed">{s.body}</p>
+              </div>
+            ))
+          }
+        </div>
+        <p class="mt-5 text-sm text-slate-500">
+          おまけの効果:プロフィールを書く作業自体が自己分析の下書きになるので、
+          あとでESを書くときにほぼそのまま流用できます。
+        </p>
+      </div>
+    </section>
+
+    <!-- 比較表 -->
+    <section id="compare" class="bg-slate-50 py-12">
+      <div class="max-w-3xl mx-auto px-5">
+        <h2 class="text-2xl font-extrabold text-slate-900">主要3サービス比較</h2>
+        <p class="mt-3 text-slate-600 text-sm">
+          どれも学生は完全無料。迷ったら「まず1つ」で十分です。
+        </p>
+        <div class="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+          <table class="w-full min-w-[640px] text-sm">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700">
+                <th class="text-left font-bold px-4 py-3 w-32">サービス</th>
+                <th class="text-left font-bold px-4 py-3">特徴</th>
+                <th class="text-left font-bold px-4 py-3">こんな人に</th>
+                <th class="text-left font-bold px-4 py-3 w-28">登録</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr>
+                <td class="px-4 py-4 font-bold text-slate-900">
+                  {SERVICES.offerbox.short}
+                  <span class="block text-xs font-normal text-indigo-600 mt-1">筆者が使用中</span>
+                </td>
+                <td class="px-4 py-4 text-slate-600 leading-relaxed">
+                  逆求人の定番。プロフィール項目が丁寧に設計されていて、書き上げる過程がそのまま自己分析になる。
+                </td>
+                <td class="px-4 py-4 text-slate-600">まず1つ選ぶなら</td>
+                <td class="px-4 py-4">
+                  <a
+                    href={SERVICES.offerbox.href}
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-track="offerbox"
+                    data-pos="table"
+                    class="inline-block bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold rounded-lg px-3 py-2 transition"
+                  >
+                    無料登録
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-4 py-4 font-bold text-slate-900">{SERVICES.kimisuka.short}</td>
+                <td class="px-4 py-4 text-slate-600 leading-relaxed">
+                  スカウトの本気度が段階で分かれていて、企業の温度感が見えやすい。無料の適性検査も受けられる。
+                </td>
+                <td class="px-4 py-4 text-slate-600">2つ目の併用に</td>
+                <td class="px-4 py-4">
+                  <a
+                    href={SERVICES.kimisuka.href}
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-track="kimisuka"
+                    data-pos="table"
+                    class="inline-block bg-slate-700 hover:bg-slate-800 text-white text-xs font-bold rounded-lg px-3 py-2 transition"
+                  >
+                    無料登録
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-4 py-4 font-bold text-slate-900">{SERVICES.dodacampus.short}</td>
+                <td class="px-4 py-4 text-slate-600 leading-relaxed">
+                  大手人材グループ運営の安心感。就活イベントやキャリア情報の発信も多い。
+                </td>
+                <td class="px-4 py-4 text-slate-600">情報収集も兼ねたい人に</td>
+                <td class="px-4 py-4">
+                  <a
+                    href={SERVICES.dodacampus.href}
+                    target="_blank"
+                    rel="nofollow sponsored noopener"
+                    data-track="dodacampus"
+                    data-pos="table"
+                    class="inline-block bg-slate-700 hover:bg-slate-800 text-white text-xs font-bold rounded-lg px-3 py-2 transition"
+                  >
+                    無料登録
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 体験談 -->
+    <section id="review" class="py-12">
+      <div class="max-w-3xl mx-auto px-5">
+        <h2 class="text-2xl font-extrabold text-slate-900">
+          実際にOfferBoxへ登録してみた(筆者の記録)
+        </h2>
+
+        <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm">
+          <ul class="space-y-3 text-sm text-slate-700 leading-relaxed">
+            <li class="flex gap-2">
+              <span class="text-cyan-600 font-bold">⏱</span>
+              <span><strong class="text-slate-900">登録時間は10分程度。</strong>思っていたより早く終わった。</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-cyan-600 font-bold">📷</span>
+              <span>正直つまずいたのは<strong class="text-slate-900">プロフィール写真</strong>。ちゃんとした写真の手持ちがなくて困ったが、結局は飾らずに素の自分の写真をそのまま使った。</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-cyan-600 font-bold">📩</span>
+              <span><strong class="text-slate-900">登録した翌日には複数社からオファーが届いていて、正直驚いた。</strong>「今は企業側が就活生を欲しがっているのかもしれない」と感じたのが一番の実感。</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-slate-50 py-12">
+      <div class="max-w-3xl mx-auto px-5">
+        <h2 class="text-2xl font-extrabold text-slate-900">よくある質問</h2>
+        <div class="mt-6 space-y-4">
+          {
+            faqs.map((f) => (
+              <div class="bg-white rounded-2xl p-5 shadow-sm">
+                <h3 class="font-bold text-slate-900">Q. {f.q}</h3>
+                <p class="mt-2 text-sm text-slate-600 leading-relaxed">A. {f.a}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- 最終CTA -->
+    <section id="cta" class="py-14">
+      <div class="max-w-3xl mx-auto px-5 text-center">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-snug">
+          今日やるのは、<br class="sm:hidden" />プロフィール登録の15分だけ。
+        </h2>
+        <p class="mt-4 text-slate-600">
+          完璧なプロフィールは後から育てればOK。まず「見つけてもらえる状態」を作っておきましょう。
+        </p>
+        <a
+          href={SERVICES.offerbox.href}
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          data-track="offerbox"
+          data-pos="final"
+          class="mt-7 inline-block w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white text-lg font-bold rounded-xl px-10 py-4 shadow-lg transition"
+        >
+          OfferBoxに無料登録する
+        </a>
+        <p class="mt-4 text-xs text-slate-400">
+          ※登録・利用ともに無料|
+          <a href={SERVICES.kimisuka.href} target="_blank" rel="nofollow sponsored noopener" data-track="kimisuka" data-pos="final" class="underline">キミスカ</a>
+          /
+          <a href={SERVICES.dodacampus.href} target="_blank" rel="nofollow sponsored noopener" data-track="dodacampus" data-pos="final" class="underline">dodaキャンパス</a>
+          はこちら
+        </p>
+      </div>
+    </section>
+
+    <footer class="border-t border-slate-200 py-8">
+      <div class="max-w-3xl mx-auto px-5 text-xs text-slate-400 space-y-2">
+        <p>運営:レイ(出遅れ28卒建築学生、AIで巻き返し中)</p>
+        <p>当サイトはアフィリエイトプログラムに参加しており、リンク経由の登録で運営者に報酬が発生する場合があります。</p>
+        <p>© 2026 出遅れ28卒の巻き返しノート</p>
+      </div>
+    </footer>
+
+    <!-- アフィリエイトリンクのクリック計測(GA4イベント送信) -->
+    <script is:inline>
+      document.addEventListener("click", function (e) {
+        var t = e.target;
+        var a = t && t.closest ? t.closest("a[data-track]") : null;
+        if (!a) return;
+        if (typeof gtag === "function") {
+          gtag("event", "affiliate_click", {
+            service: a.getAttribute("data-track"),
+            position: a.getAttribute("data-pos") || "unknown",
+            transport_type: "beacon",
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

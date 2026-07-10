@@ -1,0 +1,35 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#182a47"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.55"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- 製図風の装飾(建築モチーフ) -->
+  <g stroke="#22d3ee" stroke-width="2" opacity="0.6" fill="none">
+    <path d="M1050 150 L1130 80 L1210 150" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="1040" y1="180" x2="1220" y2="180"/>
+    <line x1="1040" y1="172" x2="1040" y2="188"/>
+    <line x1="1120" y1="172" x2="1120" y2="188"/>
+  </g>
+  <g stroke="#22d3ee" opacity="0.35" stroke-width="1.5">
+    <line x1="60" y1="60" x2="90" y2="60"/><line x1="75" y1="45" x2="75" y2="75"/>
+    <line x1="1110" y1="560" x2="1140" y2="560"/><line x1="1125" y1="545" x2="1125" y2="575"/>
+  </g>
+
+  <g font-family="Yu Gothic UI, Yu Gothic, Hiragino Kaku Gothic ProN, Meiryo, sans-serif">
+    <text x="80" y="150" font-size="34" font-weight="700" fill="#22d3ee">課題・単位・バイトで手一杯の人向け</text>
+    <text x="80" y="255" font-size="68" font-weight="800" fill="#ffffff">出遅れ28卒のための</text>
+    <text x="76" y="360" font-size="76" font-weight="800" fill="#ffffff">「<tspan fill="#22d3ee">待つだけ就活</tspan>」の始め方</text>
+    <rect x="80" y="410" width="140" height="6" rx="3" fill="#f97316"/>
+    <text x="80" y="480" font-size="31" font-weight="700" fill="#cbd5e1">逆求人サイト3社を、現役の建築学生が実際に使って比較</text>
+    <text x="80" y="575" font-size="24" font-weight="700" fill="#64748b">出遅れ28卒の巻き返しノート|レイ@AIで巻き返し中</text>
+  </g>
+</svg>
