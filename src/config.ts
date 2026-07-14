@@ -3,7 +3,7 @@
 // ============================================================
 
 // GA4の測定ID(例: "G-XXXXXXXXXX")。取得したらここに入れるだけでクリック計測が動く
-export const GA_MEASUREMENT_ID = "";
+export const GA_MEASUREMENT_ID = "G-K9J2XDZHXG";
 
 // デプロイ後に実際のURLへ差し替える(OGP画像の絶対URL生成に使用)
 export const SITE_URL = "https://ai-shukatsu-lp.vercel.app";
