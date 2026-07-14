@@ -6,7 +6,7 @@
 export const GA_MEASUREMENT_ID = "";
 
 // デプロイ後に実際のURLへ差し替える(OGP画像の絶対URL生成に使用)
-export const SITE_URL = "https://example.vercel.app";
+export const SITE_URL = "https://ai-shukatsu-lp.vercel.app";
 
 export const SITE_TITLE =
   "出遅れ28卒のための「待つだけ就活」の始め方|逆求人サイト3社比較";
