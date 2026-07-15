@@ -24,7 +24,7 @@ export const SERVICES = {
   kimisuka: {
     name: "キミスカ",
     short: "キミスカ",
-    href: "https://kimisuka.com/",
+    href: "https://px.a8.net/svt/ejp?a8mat=4B81SZ+FXCGC2+24ZO+HV7V6",
   },
   dodacampus: {
     name: "dodaキャンパス",
